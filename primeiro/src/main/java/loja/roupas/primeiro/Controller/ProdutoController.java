@@ -40,9 +40,4 @@ public class ProdutoController {
         produtoService.deleteById(id);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
-
-    @GetMapping("/findByNome")
-    public ResponseEntity<List<Produto>> findByNome(@RequestParam String nome) {
-        return new ResponseEntity<>(produtoService.findByNome(nome), HttpStatus.OK);
-    }
 }

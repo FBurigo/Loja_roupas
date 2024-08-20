@@ -40,9 +40,4 @@ public class FuncionarioController {
         funcionarioService.deleteById(id);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
-
-    @GetMapping("/findByNome")
-    public ResponseEntity<List<Funcionario>> findByNome(@RequestParam String nome) {
-        return new ResponseEntity<>(funcionarioService.findByNome(nome), HttpStatus.OK);
-    }
 }

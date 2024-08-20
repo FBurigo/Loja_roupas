@@ -31,8 +31,4 @@ public class FuncionarioService {
     public void deleteById(Long id) {
         funcionarioRepository.deleteById(id);
     }
-
-    public List<Funcionario> findByNome(String nome) {
-        return funcionarioRepository.findByNome(nome);
-    }
 }

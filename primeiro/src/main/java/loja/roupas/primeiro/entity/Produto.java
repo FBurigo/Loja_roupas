@@ -1,13 +1,12 @@
 package loja.roupas.primeiro.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
+import java.util.List;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -21,6 +20,8 @@ public class Produto {
     private Long id;
 
     private String nome;
-
     private Double valor;
+
+    @ManyToMany(mappedBy = "produtos")
+    private List<Venda> vendas;
 }
