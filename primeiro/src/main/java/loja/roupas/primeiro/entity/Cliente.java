@@ -6,8 +6,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.util.List;
-
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
@@ -24,6 +22,4 @@ public class Cliente {
     private Integer idade;
     private String telefone;
 
-    @OneToMany(mappedBy = "cliente")
-    private List<Venda> vendas;
 }

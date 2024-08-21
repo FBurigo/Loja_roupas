@@ -1,7 +1,6 @@
 package loja.roupas.primeiro.service;
 
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -24,8 +23,7 @@ public class ClienteService {
     }
 
     public Cliente findById(Long id) {
-        Optional<Cliente> cliente = clienteRepository.findById(id);
-        return cliente.orElse(null);
+        return clienteRepository.findById(id).orElse(null);
     }
 
     public void deleteById(Long id) {

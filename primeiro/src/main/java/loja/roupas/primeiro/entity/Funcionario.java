@@ -23,6 +23,4 @@ public class Funcionario {
     private Integer idade;
     private String matricula;
 
-    @OneToMany(mappedBy = "funcionario")
-    private List<Venda> vendas;
 }

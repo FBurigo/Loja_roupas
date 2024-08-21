@@ -22,6 +22,4 @@ public class Produto {
     private String nome;
     private Double valor;
 
-    @ManyToMany(mappedBy = "produtos")
-    private List<Venda> vendas;
 }
