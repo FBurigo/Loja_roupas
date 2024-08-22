@@ -7,6 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import loja.roupas.primeiro.entity.Cliente;
 import loja.roupas.primeiro.service.ClienteService;
+import jakarta.validation.Valid;
 
 @RestController
 @RequestMapping("/api/clientes")
@@ -16,9 +17,10 @@ public class ClienteController {
     private ClienteService clienteService;
 
     @PostMapping("/save")
-    public ResponseEntity<Cliente> save(@RequestBody Cliente cliente) {
+    public ResponseEntity<Cliente> save(@Valid @RequestBody Cliente cliente) {
         return new ResponseEntity<>(clienteService.save(cliente), HttpStatus.CREATED);
     }
+
 
     @GetMapping("/findAll")
     public ResponseEntity<List<Cliente>> findAll() {
