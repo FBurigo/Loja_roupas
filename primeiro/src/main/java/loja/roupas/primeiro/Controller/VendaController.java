@@ -18,12 +18,18 @@ public class VendaController {
 
     @PostMapping("/save")
     public ResponseEntity<Venda> save(@RequestBody Venda venda) {
-        return new ResponseEntity<>(vendaService.save(venda), HttpStatus.CREATED);
+        try {
+            Venda savedVenda = vendaService.save(venda);
+            return new ResponseEntity<>(savedVenda, HttpStatus.CREATED);
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
     }
 
     @GetMapping("/findAll")
     public ResponseEntity<List<Venda>> findAll() {
-        return new ResponseEntity<>(vendaService.findAll(), HttpStatus.OK);
+        List<Venda> vendas = vendaService.findAll();
+        return new ResponseEntity<>(vendas, HttpStatus.OK);
     }
 
     @GetMapping("/findById/{id}")

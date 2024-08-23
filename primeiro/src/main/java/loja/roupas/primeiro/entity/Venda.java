@@ -21,19 +21,19 @@ public class Venda {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotBlank(message = "Nao pode esta vazio")
+    @NotBlank(message = "Não pode estar vazio")
     private String enderecoDaEntrega;
     
     @DecimalMin(value = "0.00", message = "Valor deve ser maior ou igual a 0.00")
     private Double valorTotal;
 
-    @ManyToOne(optional = false)
+    @ManyToOne(optional = false, cascade = CascadeType.REMOVE)
     private Cliente cliente;
 
-    @ManyToOne(optional = false)
+    @ManyToOne(optional = false, cascade = CascadeType.REMOVE)
     private Funcionario funcionario;
 
-    @ManyToMany
+    @ManyToMany(cascade = CascadeType.REMOVE)
     @JoinTable(
         name = "venda_produto",
         joinColumns = @JoinColumn(name = "venda_id"),
