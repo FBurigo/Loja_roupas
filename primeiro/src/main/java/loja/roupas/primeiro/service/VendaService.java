@@ -1,11 +1,10 @@
 package loja.roupas.primeiro.service;
 
 import java.util.List;
-import java.util.Optional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import loja.roupas.primeiro.entity.Cliente;
 import loja.roupas.primeiro.entity.Venda;
 import loja.roupas.primeiro.repository.VendaRepository;
 
@@ -24,11 +23,30 @@ public class VendaService {
     }
 
     public Venda findById(Long id) {
-        Optional<Venda> venda = vendaRepository.findById(id);
-        return venda.orElse(null);
+        return vendaRepository.findById(id).orElse(null);
     }
 
     public void deleteById(Long id) {
         vendaRepository.deleteById(id);
+    }
+
+    public Venda update(Long id, Venda venda) {
+        if (vendaRepository.existsById(id)) {
+            venda.setId(id);
+            return vendaRepository.save(venda);
+        }
+        return null;
+    }
+
+    public List<Venda> findByValorTotalGreaterThan(Double valorTotal) {
+        return vendaRepository.findByValorTotalGreaterThan(valorTotal);
+    }
+
+    public List<Venda> findByEnderecoDaEntregaContaining(String endereco) {
+        return vendaRepository.findByEnderecoDaEntregaContaining(endereco);
+    }
+
+    public List<Venda> findByCliente(Long clienteId) {
+        return vendaRepository.findByCliente(new Cliente(clienteId, null, null, null, null));
     }
 }

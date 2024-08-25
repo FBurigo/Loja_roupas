@@ -27,13 +27,13 @@ public class Venda {
     @DecimalMin(value = "0.00", message = "Valor deve ser maior ou igual a 0.00")
     private Double valorTotal;
 
-    @ManyToOne(optional = false, cascade = CascadeType.REMOVE)
+    @ManyToOne(optional = false, cascade = CascadeType.MERGE)
     private Cliente cliente;
 
-    @ManyToOne(optional = false, cascade = CascadeType.REMOVE)
+    @ManyToOne(optional = false, cascade = CascadeType.MERGE)
     private Funcionario funcionario;
 
-    @ManyToMany(cascade = CascadeType.REMOVE)
+    @ManyToMany(cascade = CascadeType.MERGE)
     @JoinTable(
         name = "venda_produto",
         joinColumns = @JoinColumn(name = "venda_id"),
