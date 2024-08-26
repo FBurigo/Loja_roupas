@@ -25,7 +25,7 @@ public class Cliente {
     @Pattern(regexp = "^[A-Za-zÀ-ÖØ-öø-ÿ'\\s]+$", message = "Nome inválido: O nome deve conter apenas letras, acentos, apóstrofos e espaços.")
     private String nome;
     
-    //@CPF(message = "CPF invalido")
+    @CPF(message = "CPF invalido")
     private String cpf;
     	
     @Min(value = 0, message = "Idade nao pode ser menor que 0")	
