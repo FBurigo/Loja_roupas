@@ -51,6 +51,12 @@ public class ProdutoController {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
+    
+
+    @GetMapping("/findByValorLessThan/{valor}")
+    public ResponseEntity<List<Produto>> findByValorLessThan(@PathVariable double valor) {
+        return new ResponseEntity<>(produtoService.findByValorLessThan(valor), HttpStatus.OK);
+    }
 
     @GetMapping("/findByNome/{nome}")
     public ResponseEntity<List<Produto>> findByNomeContaining(@PathVariable String nome) {

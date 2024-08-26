@@ -35,11 +35,15 @@ public class FuncionarioService {
         }
         return null;
     }
-
+    
     public List<Funcionario> findByNomeContaining(String nome) {
         return funcionarioRepository.findByNomeContaining(nome);
     }
 
+    public Funcionario findByMatriculaAndIdade(String matricula, int idade) {
+        return funcionarioRepository.findByMatriculaAndIdade(matricula, idade);
+    }
+        
     public List<Funcionario> findByIdadeGreaterThanEqual(Integer idade) {
         return funcionarioRepository.findByIdadeGreaterThanEqual(idade);
     }

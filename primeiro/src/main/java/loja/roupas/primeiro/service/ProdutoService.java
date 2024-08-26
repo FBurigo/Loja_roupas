@@ -36,6 +36,10 @@ public class ProdutoService {
         return null;
     }
 
+    public List<Produto> findByValorLessThan(double valor) {
+        return produtoRepository.findByValorLessThan(valor);
+    }
+    
     public List<Produto> findByNomeContaining(String nome) {
         return produtoRepository.findByNomeContaining(nome);
     }

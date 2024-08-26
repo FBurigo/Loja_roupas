@@ -37,6 +37,14 @@ public class VendaService {
         }
         return null;
     }
+    
+    public List<Venda> findByFuncionarioId(Long funcionarioId) {
+        return vendaRepository.findByFuncionarioId(funcionarioId);
+    }
+
+    public List<Venda> findByProdutoId(Long produtoId) {
+        return vendaRepository.findByProdutoId(produtoId);
+    }
 
     public List<Venda> findByValorTotalGreaterThan(Double valorTotal) {
         return vendaRepository.findByValorTotalGreaterThan(valorTotal);

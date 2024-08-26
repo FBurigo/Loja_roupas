@@ -51,10 +51,21 @@ public class FuncionarioController {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
-
+    
     @GetMapping("/findByNome/{nome}")
     public ResponseEntity<List<Funcionario>> findByNomeContaining(@PathVariable String nome) {
         return new ResponseEntity<>(funcionarioService.findByNomeContaining(nome), HttpStatus.OK);
+    }
+
+    @GetMapping("/findByMatriculaAndIdade/{matricula}/{idade}")
+    public ResponseEntity<Funcionario> findByMatriculaAndIdade(
+            @PathVariable String matricula, @PathVariable int idade) {
+        Funcionario funcionario = funcionarioService.findByMatriculaAndIdade(matricula, idade);
+        if (funcionario != null) {
+            return new ResponseEntity<>(funcionario, HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
     }
 
     @GetMapping("/findByIdadeGreaterThan/{idade}")

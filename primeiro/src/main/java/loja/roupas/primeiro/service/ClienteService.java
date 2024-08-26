@@ -36,6 +36,10 @@ public class ClienteService {
         return null;
     }
 
+    public List<Cliente> findByIdadeBetween(int idadeMin, int idadeMax) {
+        return clienteRepository.findByIdadeBetween(idadeMin, idadeMax);
+    }
+    
     public List<Cliente> findByNomeContaining(String nome) {
         return clienteRepository.findByNomeContaining(nome);
     }

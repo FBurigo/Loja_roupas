@@ -51,6 +51,17 @@ public class VendaController {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
+    
+
+    @GetMapping("/findByFuncionarioId/{funcionarioId}")
+    public ResponseEntity<List<Venda>> findByFuncionarioId(@PathVariable Long funcionarioId) {
+        return new ResponseEntity<>(vendaService.findByFuncionarioId(funcionarioId), HttpStatus.OK);
+    }
+
+    @GetMapping("/findByProdutoId/{produtoId}")
+    public ResponseEntity<List<Venda>> findByProdutoId(@PathVariable Long produtoId) {
+        return new ResponseEntity<>(vendaService.findByProdutoId(produtoId), HttpStatus.OK);
+    }
 
     @GetMapping("/findByValorTotalGreaterThan/{valorTotal}")
     public ResponseEntity<List<Venda>> findByValorTotalGreaterThan(@PathVariable Double valorTotal) {

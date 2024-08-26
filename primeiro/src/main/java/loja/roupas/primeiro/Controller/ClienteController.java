@@ -51,7 +51,12 @@ public class ClienteController {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
-
+    
+    @GetMapping("/findByIdadeBetween/{idadeMin}/{idadeMax}")
+    public ResponseEntity<List<Cliente>> findByIdadeBetween(
+            @PathVariable int idadeMin, @PathVariable int idadeMax) {
+        return new ResponseEntity<>(clienteService.findByIdadeBetween(idadeMin, idadeMax), HttpStatus.OK);
+    }
     @GetMapping("/findByNome/{nome}")
     public ResponseEntity<List<Cliente>> findByNomeContaining(@PathVariable String nome) {
         return new ResponseEntity<>(clienteService.findByNomeContaining(nome), HttpStatus.OK);
