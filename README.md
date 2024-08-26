@@ -19,4 +19,4 @@
 >Todas as entidades devem possuir endpoints, então, haverá controller, service, repositor para cada entidade.<br>
 
 **Postman:**
->https://elements.getpostman.com/redirect?entityId=37364162-0ddea057-fddf-4684-af31-6b5c0e05514a&entityType=collection 
+>https://www.postman.com/technical-geoscientist-72975412/workspace/lojaroupas/collection/37364162-e28f3186-8a6e-45df-8770-6fdd4c7e7939?action=share&creator=37364162
